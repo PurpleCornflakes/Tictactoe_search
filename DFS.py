@@ -114,7 +114,6 @@ def search(state):
 	global Nfirst, Nsecond, Tie
 	final, winner = state.is_final()
 	if final:
-		# print(final, winner)
 		if winner == -1:
 			Tie += 1
 			result="tie"
@@ -129,15 +128,15 @@ def search(state):
 		return 1
 	for pos in state.vacancy():
 		state.update(pos)
-		# print("{}{} ".format(state.player[1 if state.turn == 0 else 0], pos))
 		search(state)
 	state.cancel()
 	return 0 
 
 state = State()
+
 # test code
-state.update(0)
-state.update(1)
+# state.update(0)
+# state.update(1)
 # state.update(2)
 # state.update(3)
 # state.update(4)
